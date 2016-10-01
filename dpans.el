@@ -78,7 +78,7 @@ Note: the string should have a trailing backslash."
   (let ((index '()) (case-fold-search t)
 	(rx "<td>\
 <a href=\"\\([^\"]+\\)\">\\([^<]+\\)</a>\
-</td><td>\"\\([^\"]+\\)\""))
+</td><td>\\(?:\"\\([^\"]+\\)\"\\)?</td>"))
     (search-forward "<table")
     (while (re-search-forward rx nil t)
       (push (list (dpans--decode-entities (match-string 2))
